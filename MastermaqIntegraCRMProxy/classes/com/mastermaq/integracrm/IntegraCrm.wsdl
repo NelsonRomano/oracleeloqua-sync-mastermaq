@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="NovaOportunidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oportunidade" type="tns:Oportunidade" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Oportunidade">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodCliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Assunto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovaOportunidadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovaOportunidadeResult" type="tns:RetornoOportunidade" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RetornoOportunidade">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgRetorno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sucesso" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PersonalAuthentication" type="tns:PersonalAuthentication" />
+      <s:complexType name="PersonalAuthentication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="EL_DadosContas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataAtualizacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EL_DadosContasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EL_DadosContasResult" type="tns:ArrayOfContaEL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContaEL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContaEL" nillable="true" type="tns:ContaEL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContaEL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaAtuacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NPSUltimaDemonstracao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoNPSUltimaDemonstracao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NPSUltimaCotacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoNPSUltimaCotacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NpsUltimaVenda" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoNpsUltimaVenda" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoSiEmpresa" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RamoDeAtividade" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceitaAnual" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantidadeFuncionarios" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Porte" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmplitudeGeográfica" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClienteDesde" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChamadoCancelamentoEmAberto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChamadoCancelamentoUltSeisMeses" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChamadoReclamacaoEmAberto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoCnae" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeClasse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Classe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CpfCnpj" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorContrato" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="DosPuro" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterCont" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterOne" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterErp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterCorporate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterConnect" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterAppWeb" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterMobile" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdSistemaMasterApi" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniquePremiumNGMonitorado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Perfil1Clientes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Perfil2Clientes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Perfil3Clientes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Perfil4Clientes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Perfil5Clientes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Perfil6Clientes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Endereco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cep" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataUltAtualizacao" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EL_DadosContatos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataAtualizacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EL_DadosContatosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EL_DadosContatosResult" type="tns:ArrayOfContatoEL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContatoEL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContatoEL" nillable="true" type="tns:ContatoEL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContatoEL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salesperson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Celular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Funcao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NivelHierarquico" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NivelInfluencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Afinidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DecisaoParaCompra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContatoPreferencial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiaNascimento" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MesNascimento" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnoNascimento" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Escolaridade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NaturezaOcupacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apelido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hobby" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetalhamentoHobby" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaixaSalarial" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CadastroNaUniversidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TamanhoCamiseta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeFutebol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoMusicaFavorita" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CursoFormacaoSuperiorTecnica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstituicaoFormacaoSuperiorTecnica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteBlog" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoSiEmpresa" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataUltAtualizacao" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EL_AtualizaDadosContato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contato" type="tns:ContatoEL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EL_AtualizaDadosContatoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EL_AtualizaDadosContatoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SF_ProdutoInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="SF_ProdutoInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SF_ProdutoInfoResult" type="tns:ArrayOfProdutoSF" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProdutoSF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProdutoSF" nillable="true" type="tns:ProdutoSF" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProdutoSF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProduto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorMinimo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorMaximo" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pacote" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Opcional" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoServico" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variavel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorVariavel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SistemasPacote" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SF_OportunidadeInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataAtualizacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SF_OportunidadeInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SF_OportunidadeInfoResult" type="tns:ArrayOfOportunidadeSF" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOportunidadeSF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OportunidadeSF" nillable="true" type="tns:OportunidadeSF" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OportunidadeSF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoConta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Responsavel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PossibilidadeGanho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Anexos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataPrevisaoFechamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataCriacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoPerdaGanho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Moeda" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorTotal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrincipalCompetidor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CanalDeVenda" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoProcesso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fonte" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoOportunidade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeDemonstradorAtual" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataDemonstracao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataParecer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDemonstracao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDemonstracao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProdutoLista" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorMensalidade" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorServico" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorAdesao" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroParcelamentoProduto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroParcelamentoServico" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataPagamentoTaxaAdesao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PercDescontoTaxaAdesao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataPrimeiroEnvioProposta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataUltumoEnvioProposta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdPropostaEnviada" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataUltimoComentarioConsultor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataAgendadaParaRetorno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataAceite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoAceite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataFechamentoNegativo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoFechamentoNegativo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeContato" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContatoDecisor" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SF_ContaInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataAtualizacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SF_ContaInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SF_ContaInfoResult" type="tns:ArrayOfContaSF" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContaSF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContaSF" nillable="true" type="tns:ContaSF" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContaSF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoCliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Segmento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContatoPrincipal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneContato" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailContato" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContaPai" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Anexos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Endereco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cep" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Codempresa" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorContratoAtivo" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClienteDesde" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Inadimplente" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodCat" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeCat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataUltCompra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataUltCancelamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PossuiDos" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SF_ContatoInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataAtualizacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SF_ContatoInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SF_ContatoInfoResult" type="tns:ArrayOfContatoSF" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContatoSF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContatoSF" nillable="true" type="tns:ContatoSF" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContatoSF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodContato" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimeiroNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimoNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneTrabalho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Celular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vendedor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cargo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NivelHieraquico" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NivelInfluencia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Afinidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DecisaoParaCompra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContatoPreferencial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiaNascimento" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MesNascimento" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnoNascimento" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Escolaridade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NaturezaOcupacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apelido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hobby" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetalhamentoHobby" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaixaSalarial" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CadastroNaUniversidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TamanhoCamiseta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeFutebol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoMusicaFavorita" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CursoFormacaoSuperiorTecnica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstituicaoFormacaoSuperiorTecnica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteBlog" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoConta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataUltAtualizacao" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="NovaOportunidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:NovaOportunidade" />
+  </wsdl:message>
+  <wsdl:message name="NovaOportunidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:NovaOportunidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovaOportunidadePersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="EL_DadosContasSoapIn">
+    <wsdl:part name="parameters" element="tns:EL_DadosContas" />
+  </wsdl:message>
+  <wsdl:message name="EL_DadosContasSoapOut">
+    <wsdl:part name="parameters" element="tns:EL_DadosContasResponse" />
+  </wsdl:message>
+  <wsdl:message name="EL_DadosContasPersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="EL_DadosContatosSoapIn">
+    <wsdl:part name="parameters" element="tns:EL_DadosContatos" />
+  </wsdl:message>
+  <wsdl:message name="EL_DadosContatosSoapOut">
+    <wsdl:part name="parameters" element="tns:EL_DadosContatosResponse" />
+  </wsdl:message>
+  <wsdl:message name="EL_DadosContatosPersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="EL_AtualizaDadosContatoSoapIn">
+    <wsdl:part name="parameters" element="tns:EL_AtualizaDadosContato" />
+  </wsdl:message>
+  <wsdl:message name="EL_AtualizaDadosContatoSoapOut">
+    <wsdl:part name="parameters" element="tns:EL_AtualizaDadosContatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EL_AtualizaDadosContatoPersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="SF_ProdutoInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SF_ProdutoInfo" />
+  </wsdl:message>
+  <wsdl:message name="SF_ProdutoInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SF_ProdutoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SF_ProdutoInfoPersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="SF_OportunidadeInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SF_OportunidadeInfo" />
+  </wsdl:message>
+  <wsdl:message name="SF_OportunidadeInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SF_OportunidadeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SF_OportunidadeInfoPersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="SF_ContaInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SF_ContaInfo" />
+  </wsdl:message>
+  <wsdl:message name="SF_ContaInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SF_ContaInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SF_ContaInfoPersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="SF_ContatoInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SF_ContatoInfo" />
+  </wsdl:message>
+  <wsdl:message name="SF_ContatoInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SF_ContatoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SF_ContatoInfoPersonalAuthentication">
+    <wsdl:part name="PersonalAuthentication" element="tns:PersonalAuthentication" />
+  </wsdl:message>
+  <wsdl:portType name="IntegraSalesForceSoap">
+    <wsdl:operation name="NovaOportunidade">
+      <wsdl:input message="tns:NovaOportunidadeSoapIn" />
+      <wsdl:output message="tns:NovaOportunidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EL_DadosContas">
+      <wsdl:input message="tns:EL_DadosContasSoapIn" />
+      <wsdl:output message="tns:EL_DadosContasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EL_DadosContatos">
+      <wsdl:input message="tns:EL_DadosContatosSoapIn" />
+      <wsdl:output message="tns:EL_DadosContatosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EL_AtualizaDadosContato">
+      <wsdl:input message="tns:EL_AtualizaDadosContatoSoapIn" />
+      <wsdl:output message="tns:EL_AtualizaDadosContatoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SF_ProdutoInfo">
+      <wsdl:input message="tns:SF_ProdutoInfoSoapIn" />
+      <wsdl:output message="tns:SF_ProdutoInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SF_OportunidadeInfo">
+      <wsdl:input message="tns:SF_OportunidadeInfoSoapIn" />
+      <wsdl:output message="tns:SF_OportunidadeInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SF_ContaInfo">
+      <wsdl:input message="tns:SF_ContaInfoSoapIn" />
+      <wsdl:output message="tns:SF_ContaInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SF_ContatoInfo">
+      <wsdl:input message="tns:SF_ContatoInfoSoapIn" />
+      <wsdl:output message="tns:SF_ContatoInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IntegraSalesForceSoap" type="tns:IntegraSalesForceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NovaOportunidade">
+      <soap:operation soapAction="http://tempuri.org/NovaOportunidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:NovaOportunidadePersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EL_DadosContas">
+      <soap:operation soapAction="http://tempuri.org/EL_DadosContas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EL_DadosContasPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EL_DadosContatos">
+      <soap:operation soapAction="http://tempuri.org/EL_DadosContatos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EL_DadosContatosPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EL_AtualizaDadosContato">
+      <soap:operation soapAction="http://tempuri.org/EL_AtualizaDadosContato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EL_AtualizaDadosContatoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_ProdutoInfo">
+      <soap:operation soapAction="http://tempuri.org/SF_ProdutoInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SF_ProdutoInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_OportunidadeInfo">
+      <soap:operation soapAction="http://tempuri.org/SF_OportunidadeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SF_OportunidadeInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_ContaInfo">
+      <soap:operation soapAction="http://tempuri.org/SF_ContaInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SF_ContaInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_ContatoInfo">
+      <soap:operation soapAction="http://tempuri.org/SF_ContatoInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SF_ContatoInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IntegraSalesForceSoap12" type="tns:IntegraSalesForceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NovaOportunidade">
+      <soap12:operation soapAction="http://tempuri.org/NovaOportunidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:NovaOportunidadePersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EL_DadosContas">
+      <soap12:operation soapAction="http://tempuri.org/EL_DadosContas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EL_DadosContasPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EL_DadosContatos">
+      <soap12:operation soapAction="http://tempuri.org/EL_DadosContatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EL_DadosContatosPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EL_AtualizaDadosContato">
+      <soap12:operation soapAction="http://tempuri.org/EL_AtualizaDadosContato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EL_AtualizaDadosContatoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_ProdutoInfo">
+      <soap12:operation soapAction="http://tempuri.org/SF_ProdutoInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SF_ProdutoInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_OportunidadeInfo">
+      <soap12:operation soapAction="http://tempuri.org/SF_OportunidadeInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SF_OportunidadeInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_ContaInfo">
+      <soap12:operation soapAction="http://tempuri.org/SF_ContaInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SF_ContaInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SF_ContatoInfo">
+      <soap12:operation soapAction="http://tempuri.org/SF_ContatoInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SF_ContatoInfoPersonalAuthentication" part="PersonalAuthentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IntegraSalesForce">
+    <wsdl:port name="IntegraSalesForceSoap" binding="tns:IntegraSalesForceSoap">
+      <soap:address location="http://crmintegration.mastermaq.com.br/CrmIntegration/IntegraCrm.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IntegraSalesForceSoap12" binding="tns:IntegraSalesForceSoap12">
+      <soap12:address location="http://crmintegration.mastermaq.com.br/CrmIntegration/IntegraCrm.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
